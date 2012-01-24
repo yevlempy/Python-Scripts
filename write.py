@@ -22,7 +22,6 @@ import warnings
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore",category=DeprecationWarning)
     import md5,sha
-m = [":list", "=>", "Harsh", "Raja", "Baja :P"]
 #Converting ctjava.ddl to ctjava_backup.ddl!
 shutil.copy2("ctjava.ddl", "ctjava_backup.ddl")
 #Taking md5sum of ctjava_backup.ddl and comparing it with the old ctjava.ddl!
