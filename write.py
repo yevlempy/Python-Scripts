@@ -44,10 +44,13 @@ for x in range(0, xmlTag.length):
     for y in range(x+1, xmlTag.length):
         if (xmlTag[x].childNodes[0].nodeValue == xmlTag[y].childNodes[0].nodeValue):
             ddllist.append (xmlTag[x].childNodes[0].nodeValue)
+#Appending All at the first position of list and removing duplication of elements from list!
 ddllist.insert(0,"All")
 ddllist = list(set(ddllist))
+#Getting list in proper format required!
 k = json.dumps(ddllist)
 print k
+#Opening proper file and adding list in proper place!
 o = open("ctjavanew.ddl","w")
 for line in open('ctjava.ddl').readlines():
     if (re.match('[\s]+:list =>',line)):
@@ -55,4 +58,5 @@ for line in open('ctjava.ddl').readlines():
     else:
         o.write(line)
 o.close()
+#Changing name to required one!
 os.rename("ctjavanew.ddl","ctjava.ddl")
