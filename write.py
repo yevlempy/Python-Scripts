@@ -7,7 +7,7 @@ Created on Jan 13, 2012
 #Importing proper libraries!
 import sys
 import re
-import time 
+import time
 import os
 import shutil
 import string
@@ -44,9 +44,10 @@ for x in range(0, xmlTag.length):
     for y in range(x+1, xmlTag.length):
         if (xmlTag[x].childNodes[0].nodeValue == xmlTag[y].childNodes[0].nodeValue):
             ddllist.append (xmlTag[x].childNodes[0].nodeValue)
+ddllist.insert(0,"All")
+ddllist = list(set(ddllist))
 k = json.dumps(ddllist)
 print k
-#TODO To replace the duplicated items and append "All" at the starting of the list!
 o = open("ctjavanew.ddl","w")
 for line in open('ctjava.ddl').readlines():
     if (re.match('[\s]+:list =>',line)):
